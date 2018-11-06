@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp"
+    android:padding="8dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="@color/colorPrimary"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/colorWhite"
+                android:text="Informasi Alamat"
+                android:layout_gravity="left"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close"
+                android:padding="2dp"
+                android:background="@drawable/background_mom"
+                android:layout_gravity="right"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home"
+                android:padding="8dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="6dp"
+                />
+            <TextView
+                android:id="@+id/txt_alamat_rumah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Rumah :"
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/txt_kecamatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kecamatan : "
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/txt_kelurahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kabupaten : "
+                android:textColor="@color/colorText"
+                android:layout_marginBottom="4dp"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/txt_notelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Telphone yang bisa dihubungi : "
+                android:layout_marginBottom="4dp"
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

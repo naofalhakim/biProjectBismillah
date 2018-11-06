@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:padding="6dp"
+    >
+
+    <ImageView
+        android:id="@+id/img_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_nama_bayi"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/txt_nama_bayi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info 1"
+        android:layout_toRightOf="@id/img_info"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/colorBlack"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/txt_ttl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TTL"
+        android:textColor="@color/colorText"
+        android:layout_toRightOf="@id/img_info"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/txt_nama_bayi"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+
+    <TextView
+        android:id="@+id/txt_noAkte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="09787896"
+        android:textColor="@color/colorText"
+        android:layout_toRightOf="@id/txt_ttl"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/txt_nama_bayi"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+    <TextView
+        android:id="@+id/txt_kelamin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laki Laki"
+        android:textColor="@color/colorText"
+        android:layout_toRightOf="@id/txt_nama_bayi"
+        android:layout_marginLeft="20dp"
+        android:textAppearance="?attr/textAppearanceListItem" />
+
+</RelativeLayout>

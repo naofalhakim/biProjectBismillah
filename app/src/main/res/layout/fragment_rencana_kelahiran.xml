@@ -1,0 +1,86 @@
+<FrameLayout n1:background="@color/colorWhite"
+    n1:layout_width="fill_parent"
+    n1:layout_height="fill_parent"
+    xmlns:n1="http://schemas.android.com/apk/res/android"
+    tools:context="com.example.user.projectbidanku.FragmentMenu.RencanaKelahiranFragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        n1:orientation="vertical"
+        n1:layout_width="fill_parent"
+        n1:layout_height="fill_parent">
+
+        <ImageView
+            n1:layout_width="fill_parent"
+            n1:layout_height="200.0dip"
+            n1:src="@drawable/ic_launcher_background" />
+
+        <RelativeLayout
+            n1:gravity="center_horizontal"
+            n1:padding="10.0dip"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content">
+
+            <ImageView
+                n1:id="@+id/img_help"
+                n1:layout_width="wrap_content"
+                n1:layout_height="wrap_content"
+                n1:layout_marginRight="10.0dip"
+                n1:src="@drawable/ic_question" />
+
+            <TextView
+                n1:layout_width="wrap_content"
+                n1:layout_height="wrap_content"
+                n1:text="Apa itu rencana kelahiran ?"
+                n1:layout_toRightOf="@id/img_help"
+                n1:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <TextView
+            n1:textSize="10.0pt"
+            n1:textColor="@color/colorWhite"
+            n1:background="@color/colorPrimary"
+            n1:padding="8.0dip"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content"
+            n1:text="Umum" />
+
+        <android.support.design.widget.TextInputLayout
+            n1:padding="6.0dip"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                n1:textColor="@color/colorBlack"
+                n1:id="@+id/et_nama_akun"
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:text="Dr. Monalisa"
+                n1:hint="Penolong persalinan 1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            n1:padding="6.0dip"
+            n1:layout_width="fill_parent"
+            n1:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                n1:textColor="@color/colorBlack"
+                n1:id="@+id/et_penolong_perssalinan2"
+                n1:layout_width="fill_parent"
+                n1:layout_height="wrap_content"
+                n1:text="Dr. LisaMona"
+                n1:hint="Penolong persalinan 2" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView n1:textSize="10.0pt" n1:textColor="@color/colorWhite" n1:background="@color/colorPrimary" n1:padding="8.0dip" n1:layout_width="fill_parent" n1:layout_height="wrap_content" n1:text="Orang" />
+        <CheckBox n1:layout_width="fill_parent" n1:layout_height="wrap_content" n1:layout_margin="6.0dip" n1:text="Keluarga Dapata Mengunjungi saya" />
+        <CheckBox n1:layout_width="fill_parent" n1:layout_height="wrap_content" n1:layout_margin="6.0dip" n1:text="Saya Hanya Ingin ditemani suami" />
+        <CheckBox n1:layout_width="fill_parent" n1:layout_height="wrap_content" n1:layout_margin="6.0dip" n1:text="Saya Hanya Ingin ditemani suami" />
+    </LinearLayout>
+
+
+</FrameLayout>

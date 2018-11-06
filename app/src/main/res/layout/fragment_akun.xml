@@ -1,0 +1,261 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.projectbidanku.FragmentMenu.AkunFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/mother"
+                />
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Nama"
+                    android:text="Nadia"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Email"
+                    android:text="Nadia@gmail.com"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Location"
+                    android:text="Bandung"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_usia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Age"
+                    android:inputType="number"
+                    android:text="26"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_kehamilan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Kehamilan ke"
+                    android:inputType="number"
+                    android:text="1"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_pendidikan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Penddidikan"
+                    android:inputType="text"
+                    android:text="S1"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_notelp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:hint="Telphone Number"
+                    android:inputType="phone"
+                    android:text="082214994729"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.4"
+                    android:layout_height="wrap_content"
+                    android:text="Selengkapnya"
+                    />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    >
+
+                </View>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                >
+                <ImageButton
+                    android:id="@+id/btn_moremom"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_mom"
+                    android:src="@drawable/small_mother"
+                    android:padding="10dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btn_morehusband"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_mom"
+                    android:src="@drawable/man"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
+                    />
+                <ImageButton
+                    android:id="@+id/btn_morehome"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_mom"
+                    android:src="@drawable/home"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
+                    />
+                <ImageButton
+                    android:id="@+id/btn_morekids"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_mom"
+                    android:src="@drawable/laugh"
+                    android:padding="10dp"
+                    android:layout_marginLeft="5dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Detail Anda"
+                    android:padding="5dp"
+                    />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Suami Anda"
+                    android:padding="5dp"
+                    />
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Keluarga Anda"
+                    android:padding="5dp"
+                    />
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.25"
+                    android:layout_height="wrap_content"
+                    android:text="Informasi Anak Anda"
+                    android:padding="5dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp"
+    android:padding="8dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="@color/colorPrimary"
+            >
+            <TextView
+                android:id="@+id/txt_nama"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textColor="@color/colorWhite"
+                android:text="Kehamilan ke - 1"
+                android:layout_gravity="left"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close"
+                android:padding="2dp"
+                android:background="@drawable/background_mom"
+                android:layout_gravity="right"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/txt_usia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usia Kehamilan : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_tanggal_cekup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Melakukan Cekup : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_tanggal_recekup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cekup Selanjutnya Cekup : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Cekup: "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_complaint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keluhan : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_lab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hasil Uji Lab : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_bloodpreasure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tekanan Darah : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_beratBadan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berat Badan : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+
+            <TextView
+                android:id="@+id/txt_fudus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tinggi Fudus : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+            <TextView
+                android:id="@+id/txt_futuspos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Posisi Fitus : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+            <TextView
+                android:id="@+id/txt_fetusPulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fetus pulse : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+            <TextView
+                android:id="@+id/txt_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heart Pulse : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/colorText"></View>
+            <TextView
+                android:id="@+id/txt_swoolen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Swoolen Pulse : "
+                android:textColor="@color/colorText"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp"
+    android:orientation="vertical"
+    tools:context="com.example.user.projectbidanku.FragmentMenu.DetailDataKehamilanFragment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="4dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp"
+            >
+
+            <TextView
+                android:id="@+id/txt_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kehamilan 1"
+                android:gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_margin="4dp"
+                />
+
+            <TextView
+                android:id="@+id/txt_armsize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukuran Lingkar Lengan"
+                />
+
+            <TextView
+                android:id="@+id/txt_terakhir_mens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terakhir Menstruasi : 28-02-2018"
+                />
+
+            <TextView
+                android:id="@+id/txt_estimasi_kelahiran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:text="Estimasi Kelahiran : 28-10-2018"
+                />
+
+            <TextView
+                android:id="@+id/txt_metode_kontrasep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Metode Kontrasepsi : Tidak Ada"
+                />
+
+            <TextView
+                android:id="@+id/txt_KEK"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menggunakan KEK : Tidak"
+                />
+
+            <TextView
+                android:id="@+id/txt_body_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tinggi Badan : 147 cm"
+                />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Cekup Anda "
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorText"
+        android:layout_marginTop="4dp"
+        >
+
+    </View>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclre_cekup"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
