@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -45,7 +46,15 @@ public class MenuActivity extends AppCompatActivity
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_menu, new BerandaFragment());
-        getSupportActionBar().setTitle("Beranda");
+
+        this.getSupportActionBar().setDisplayShowCustomEnabled(true);
+        this.getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        LayoutInflater inflator = LayoutInflater.from(this);
+        View v = inflator.inflate(R.layout.title_custom, null);
+        ((TextView)v.findViewById(R.id.title)).setText("BERANDA");
+        this.getSupportActionBar().setCustomView(v);
+
         fragmentTransaction.commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -97,30 +106,41 @@ public class MenuActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         int id = item.getItemId();
 
+        LayoutInflater inflator = LayoutInflater.from(this);
+        View v = inflator.inflate(R.layout.title_custom, null);
+
         if (id == R.id.nav_berandaberanda) {
             fragmentTransaction.replace(R.id.fragment_menu, new BerandaFragment());
-            getSupportActionBar().setTitle("Beranda");
+            ((TextView)v.findViewById(R.id.title)).setText("BERANDA");
+            this.getSupportActionBar().setCustomView(v);
+
         } else if (id == R.id.nav_akun) {
             fragmentTransaction.replace(R.id.fragment_menu, new AkunFragment());
-            getSupportActionBar().setTitle("Akun");
+            ((TextView)v.findViewById(R.id.title)).setText("AKUN");
+            this.getSupportActionBar().setCustomView(v);
+
         } else if (id == R.id.nav_data_kehamilan) {
             fragmentTransaction.replace(R.id.fragment_menu, new DataKehamilanFragment());
-            getSupportActionBar().setTitle("Data Kehamilan Anda");
+            ((TextView)v.findViewById(R.id.title)).setText("DATA KEHAMILAN");
+            this.getSupportActionBar().setCustomView(v);
         } else if (id == R.id.nav_namabayi) {
             fragmentTransaction.replace(R.id.fragment_menu, new NamaBayiFragment());
-            getSupportActionBar().setTitle("Nama Bayi Anda");
+            ((TextView)v.findViewById(R.id.title)).setText("NAMA BAYI");
+            this.getSupportActionBar().setCustomView(v);
         } else if (id == R.id.nav_galeri) {
 
         }else if (id == R.id.nav_persiapan_kehamilan) {
             fragmentTransaction.replace(R.id.fragment_menu, new RencanaKelahiranFragment());
-            getSupportActionBar().setTitle("Rencana Kehamilan");
+            ((TextView)v.findViewById(R.id.title)).setText("RENCANA KEHAMILAN");
+            this.getSupportActionBar().setCustomView(v);
         }else if (id == R.id.nav_logout) {
             startActivity(new Intent(MenuActivity.this, LoginActivity.class));
             finish();
             sessionManager.doLogout();
         }else{
             fragmentTransaction.replace(R.id.fragment_menu, new BerandaFragment());
-            getSupportActionBar().setTitle("Beranda");
+            ((TextView)v.findViewById(R.id.title)).setText("BERANDA");
+            this.getSupportActionBar().setCustomView(v);
         }
 
         fragmentTransaction.commit();
