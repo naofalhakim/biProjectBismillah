@@ -10,95 +10,186 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="12dp"
+        app:cardCornerRadius="4dp"
         android:layout_margin="4dp"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/colorWhite"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp"
-            >
-
-            <TextView
-                android:id="@+id/txt_nama"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kehamilan 1"
-                android:gravity="center_horizontal"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_margin="4dp"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                >
 
-            <TextView
-                android:id="@+id/txt_armsize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ukuran Lingkar Lengan"
-                />
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/embryo"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <TextView
+                    android:id="@+id/txt_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kehamilan 1"
+                    android:gravity="center_horizontal"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_margin="4dp"
+                    />
 
-            <TextView
-                android:id="@+id/txt_terakhir_mens"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Terakhir Menstruasi : 28-02-2018"
-                />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txt_estimasi_kelahiran"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold"
-                android:text="Estimasi Kelahiran : 28-10-2018"
-                />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/muscle"
+                        android:layout_marginRight="10dp"
+                        />
 
-            <TextView
-                android:id="@+id/txt_metode_kontrasep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Metode Kontrasepsi : Tidak Ada"
-                />
+                    <TextView
+                        android:id="@+id/txt_armsize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ukuran Lingkar Lengan"
+                        />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_KEK"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menggunakan KEK : Tidak"
-                />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txt_body_height"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tinggi Badan : 147 cm"
-                />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/blood"
+                        android:layout_marginRight="10dp"
+                        />
 
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/txt_terakhir_mens"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Terakhir Menstruasi : 28-02-2018"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/calen"
+                        android:layout_marginRight="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_estimasi_kelahiran"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textStyle="bold"
+                        android:text="Estimasi Kelahiran : 28-10-2018"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/condoms"
+                        android:layout_marginRight="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_metode_kontrasep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Metode Kontrasepsi : Tidak Ada"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/idcard"
+                        android:layout_marginRight="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_KEK"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Menggunakan KEK : Tidak"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/manly"
+                        android:layout_marginRight="10dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_body_height"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tinggi Badan : 147 cm"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
     <TextView
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="21dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="List Cekup Anda "
-
+        android:textStyle="bold"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-smallcaps"
         />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorText"
-        android:layout_marginTop="4dp"
-        >
-
-    </View>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclre_cekup"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
