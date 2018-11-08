@@ -3,107 +3,110 @@ package com.example.user.projectbidanku.FragmentMenu;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioButton;
 
+import com.example.user.projectbidanku.Adapter.NamaCalonBayiRecyclerViewAdapter;
+import com.example.user.projectbidanku.AppConfiguration.ServerHelper;
+import com.example.user.projectbidanku.AppConfiguration.SessionManager;
+import com.example.user.projectbidanku.Model.NamaCalonBayi;
+import com.example.user.projectbidanku.Model.VolleyCalback;
+import com.example.user.projectbidanku.Model.VolleyListCalback;
 import com.example.user.projectbidanku.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link RekomendasiNamaFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link RekomendasiNamaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class RekomendasiNamaFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+public class RekomendasiNamaFragment extends Fragment implements View.OnClickListener{
 
-    public RekomendasiNamaFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RekomendasiNamaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RekomendasiNamaFragment newInstance(String param1, String param2) {
-        RekomendasiNamaFragment fragment = new RekomendasiNamaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private RecyclerView recyclerView;
+    private List<NamaCalonBayi> namaList;
+    private FloatingActionButton floatingActionButton;
+    private ServerHelper serverHelper;
+    private SessionManager sessionManager;
+    private Context context ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rekomendasi_nama, container, false);
-    }
+        View root = inflater.inflate(R.layout.fragment_rekomendasi_nama, container, false);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        namaList = new ArrayList();
+        context = this.getContext();
+
+        floatingActionButton = (FloatingActionButton) root.findViewById(R.id.btn_add_baby);
+        floatingActionButton.setOnClickListener(this);
+        serverHelper = new ServerHelper(getContext());
+        sessionManager = new SessionManager(getContext());
+
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclre_activity);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
+            @Override
+            public void onSuccess(List<Object> objectList) {
+                namaList = (List<NamaCalonBayi>) (Object) objectList;
+                recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context));
+            }
+        });
+
+
+        floatingActionButton.setOnClickListener(this);
+        return root;
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onClick(View v) {
+        showForm();
     }
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
+    public void showForm(){
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+        View mView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_adding_namaanak, null);
+        mBuilder.setView(mView);
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        final TextInputEditText etNamaBayi = (TextInputEditText) mView.findViewById(R.id.et_nama_bayi);
+        final TextInputEditText etArtiBayi = (TextInputEditText) mView.findViewById(R.id.et_arti_bayi);
+        final RadioButton rdLaki = (RadioButton) mView.findViewById(R.id.rd_laki);
+        RadioButton rdPerempuan = (RadioButton) mView.findViewById(R.id.rd_perempuan);
+        Button addButton = (Button) mView.findViewById(R.id.btn_add_baby);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String gender;
+                if(rdLaki.isChecked()){
+                    gender = "laki";
+                }else{
+                    gender = "perempuan";
+                }
+                serverHelper.addBabyNameFunction(sessionManager.getLoginID(), etNamaBayi.getText().toString(),
+                        etArtiBayi.getText().toString(), gender, new VolleyCalback() {
+                            @Override
+                            public void onSuccess(String result, String result2) {
+
+                            }
+                        });
+                serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
+                    @Override
+                    public void onSuccess(List<Object> objectList) {
+                        namaList = (List<NamaCalonBayi>) (Object) objectList;
+                        recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context));
+                    }
+                });
+            }
+        });
+
+        final AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 }
