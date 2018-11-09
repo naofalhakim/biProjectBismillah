@@ -1,11 +1,16 @@
 package com.example.user.projectbidanku.Model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by user on 31/08/2018.
  */
 
-public class NamaCalonBayi {
+public class NamaCalonBayi extends RealmObject{
+    @PrimaryKey
     private int id;
+
     private String jeniskelamin;
     private int sign_fav;
 
