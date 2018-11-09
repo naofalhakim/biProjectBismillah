@@ -2,66 +2,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="6dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.user.projectbidanku.FragmentMenu.FavoritNamaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:id="@+id/label_keterangan"
+    <android.support.v7.widget.CardView
+        android:layout_margin="12dp"
+        app:cardCornerRadius="4dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/colorWhite"
         >
 
-        <TextView
-            android:id="@+id/txt_nama_bayi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nama"
-            android:textColor="@color/colorBlack"
-            android:textAppearance="?attr/textAppearanceListItem" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            >
 
-        <TextView
-            android:id="@+id/txt_arti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Arti"
-            android:textColor="@color/colorText"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:layout_toRightOf="@id/txt_nama_bayi"
-            android:layout_marginLeft="20dp"
-            />
+            <RelativeLayout
+                android:id="@+id/label_keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
 
-        <TextView
-            android:id="@+id/img_info1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="L / P"
-            android:layout_toLeftOf="@id/img_info"
-            android:layout_marginRight="20dp"
-            android:textColor="@color/colorText"
-            android:textAppearance="?attr/textAppearanceListItem"/>
+                <TextView
+                    android:id="@+id/txt_nama_bayi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama"
+                    android:textColor="@color/colorBlack"
+                    android:textAppearance="?attr/textAppearanceListItem" />
 
-        <ImageView
-            android:id="@+id/img_info"
-            android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_nama_bayi"
-            android:layout_centerVertical="true"
-            />
+                <TextView
+                    android:id="@+id/txt_arti"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arti"
+                    android:textColor="@color/colorText"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:layout_toRightOf="@id/txt_nama_bayi"
+                    android:layout_marginLeft="20dp"
+                    />
 
-        />
+                <TextView
+                    android:id="@+id/img_info1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="L / P"
+                    android:layout_toLeftOf="@id/img_info"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/colorText"
+                    android:textAppearance="?attr/textAppearanceListItem"/>
 
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/img_info"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_nama_bayi"
+                    android:layout_centerVertical="true"
+                    />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclre_activity"
-        android:layout_below="@id/label_keterangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                />
 
-    </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclre_activity"
+                android:layout_below="@id/label_keterangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_add_baby"
@@ -72,6 +91,5 @@
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
         />
-
 
 </RelativeLayout>

@@ -1,7 +1,9 @@
 package com.example.user.projectbidanku.FragmentMenu;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputEditText;
@@ -16,11 +18,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.example.user.projectbidanku.Adapter.NamaCalonBayiRecyclerViewAdapter;
-import com.example.user.projectbidanku.AppConfiguration.ServerHelper;
-import com.example.user.projectbidanku.AppConfiguration.SessionManager;
+import com.example.user.projectbidanku.Model.DataNamaBayi;
 import com.example.user.projectbidanku.Model.NamaCalonBayi;
-import com.example.user.projectbidanku.Model.VolleyCalback;
-import com.example.user.projectbidanku.Model.VolleyListCalback;
 import com.example.user.projectbidanku.R;
 
 import java.util.ArrayList;
@@ -32,23 +31,23 @@ public class RekomendasiNamaFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<NamaCalonBayi> namaList;
     private Context context ;
+    private DataNamaBayi dataNamaBayi;
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_rekomendasi_nama, container, false);
 
+        dataNamaBayi = new DataNamaBayi();
         namaList = new ArrayList();
         context = this.getContext();
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclre_activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-        for (int i = 0; i < 10; i++) {
-            NamaCalonBayi a = new NamaCalonBayi(i, "L", "Paijo", "Paijo");
-            if(i % 2 == 0){
-                a.setSign_fav(1);
-            }
+        for (int i = 0; i < dataNamaBayi.dataNama.length; i++) {
+            NamaCalonBayi a = new NamaCalonBayi(i, dataNamaBayi.dataNama[i][2], dataNamaBayi.dataNama[i][0], dataNamaBayi.dataNama[i][1]);
             namaList.add(a);
 
         }

@@ -47,7 +47,9 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
             holder.mImageView.setText("P");
         }
 
-        if(holder.mItem.getSign_fav() != 0) {
+        if(holder.mItem.getSign_fav() == 0) {
+            holder.imageView.setImageResource(R.drawable.ic_male_baby);
+        }else{
             holder.imageView.setImageResource(R.drawable.ic_female_baby);
         }
 
@@ -56,7 +58,7 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
             public void onClick(View v) {
                 if(holder.mItem.getSign_fav() == 0){
                     holder.mItem.setSign_fav(1);
-                    holder.imageView.setImageResource(R.drawable.ic_male_baby);
+                    holder.imageView.setImageResource(R.drawable.ic_female_baby);
                     Toast.makeText(context,"Added to Favorit",Toast.LENGTH_SHORT).show();
                 }
             }

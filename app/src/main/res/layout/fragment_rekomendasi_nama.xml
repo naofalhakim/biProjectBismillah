@@ -58,11 +58,20 @@
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_nama_bayi"
+                    android:src="@drawable/ic_male_baby"
                     android:layout_centerVertical="true"
                     />
 
                 />
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_below="@id/img_info1"
+                    >
+                </View>
 
             </RelativeLayout>
 
@@ -71,8 +80,9 @@
                 android:id="@+id/recyclre_activity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
-                android:padding="6dp">
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:scrollbars="vertical"
+                >
 
             </android.support.v7.widget.RecyclerView>
 
