@@ -6,20 +6,11 @@
     android:padding="6dp"
     >
 
-    <ImageView
-        android:id="@+id/img_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_nama_bayi"
-        android:layout_centerVertical="true"
-        />
-
     <TextView
         android:id="@+id/txt_nama_bayi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Info 1"
-        android:layout_toRightOf="@id/img_info"
         android:layout_marginLeft="20dp"
         android:textColor="@color/colorBlack"
         android:textAppearance="?attr/textAppearanceListItem" />
@@ -34,13 +25,23 @@
         android:layout_marginLeft="20dp"
         android:textAppearance="?attr/textAppearanceListItem" />
 
-    <ImageView
+    <TextView
         android:id="@+id/img_info1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:text="L"
+        android:layout_marginRight="20dp"
+        android:layout_toLeftOf="@id/img_info"
+        />
+
+    <ImageView
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_male_baby"
+        android:id="@+id/img_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_nama_bayi"
+        android:layout_centerVertical="true"
         />
 
 </RelativeLayout>

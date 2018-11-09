@@ -1,13 +1,77 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="6dp"
     tools:context="com.example.user.projectbidanku.FragmentMenu.FavoritNamaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/label_keterangan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        >
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/txt_nama_bayi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textColor="@color/colorBlack"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/txt_arti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Arti"
+            android:textColor="@color/colorText"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:layout_toRightOf="@id/txt_nama_bayi"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/img_info1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="L / P"
+            android:layout_toLeftOf="@id/img_info"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/colorText"
+            android:textAppearance="?attr/textAppearanceListItem"/>
+
+        <ImageView
+            android:id="@+id/img_info"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_nama_bayi"
+            android:layout_centerVertical="true"
+            />
+
+        />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclre_activity"
+        android:layout_below="@id/label_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_add_baby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        />
+
+
+</RelativeLayout>

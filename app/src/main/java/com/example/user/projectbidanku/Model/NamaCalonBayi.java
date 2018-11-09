@@ -7,6 +7,7 @@ package com.example.user.projectbidanku.Model;
 public class NamaCalonBayi {
     private int id;
     private String jeniskelamin;
+    private int sign_fav;
 
     public NamaCalonBayi(int id, String jeniskelamin, int id_bayi, String nama, String arti) {
         this.id = id;
@@ -14,10 +15,18 @@ public class NamaCalonBayi {
         this.id_bayi = id_bayi;
         this.nama = nama;
         this.arti = arti;
+        this.sign_fav = 0;
+    }
+
+    public int getSign_fav() {
+        return sign_fav;
+    }
+
+    public void setSign_fav(int sign_fav) {
+        this.sign_fav = sign_fav;
     }
 
     public int getId_bayi() {
-
         return id_bayi;
     }
 

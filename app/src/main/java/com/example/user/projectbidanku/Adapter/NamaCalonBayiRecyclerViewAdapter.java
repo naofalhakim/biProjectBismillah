@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.user.projectbidanku.Model.Info;
 import com.example.user.projectbidanku.Model.NamaCalonBayi;
@@ -40,11 +41,26 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(holder.mItem.getNama());
         holder.mContentKeterangan.setText(holder.mItem.getArti());
-        if (holder.mItem.getJeniskelamin().equals("laki")){
-            holder.mImageView.setImageResource(R.drawable.ic_male_baby);
+        if (holder.mItem.getJeniskelamin().equals("L")){
+            holder.mImageView.setText("L");
         }else{
-            holder.mImageView.setImageResource(R.drawable.ic_female_baby);
+            holder.mImageView.setText("P");
         }
+
+        if(holder.mItem.getSign_fav() != 0) {
+            holder.imageView.setImageResource(R.drawable.ic_female_baby);
+        }
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(holder.mItem.getSign_fav() == 0){
+                    holder.mItem.setSign_fav(1);
+                    holder.imageView.setImageResource(R.drawable.ic_male_baby);
+                    Toast.makeText(context,"Added to Favorit",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +80,8 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
 
         public final TextView mContentView;
         public final TextView mContentKeterangan;
-        public final ImageView mImageView;
+        public final TextView mImageView;
+        public final ImageView imageView;
 
         public NamaCalonBayi mItem;
 
@@ -73,7 +90,8 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
             mView = view;
             mContentView = (TextView) view.findViewById(R.id.txt_nama_bayi);
             mContentKeterangan = (TextView) view.findViewById(R.id.txt_arti);
-            mImageView = (ImageView) view.findViewById(R.id.img_info1);
+            mImageView = (TextView) view.findViewById(R.id.img_info1);
+            imageView = (ImageView) view.findViewById(R.id.img_info);
         }
 
         @Override
