@@ -37,9 +37,10 @@
     <ImageView
         android:layout_alignParentRight="true"
         android:id="@+id/img_info"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_nama_bayi"
+        android:src="@drawable/ic_close"
         android:layout_centerVertical="true"
         />
 
