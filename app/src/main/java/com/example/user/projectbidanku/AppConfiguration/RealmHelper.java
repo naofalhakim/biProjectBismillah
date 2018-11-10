@@ -51,6 +51,11 @@ public class RealmHelper {
         return namaCalonBayis;
     }
 
+    public NamaCalonBayi selectNamaBayiFav(String nama){
+        NamaCalonBayi namaCalonBayi = realm.where(NamaCalonBayi.class).equalTo("nama",nama).findFirst();
+        return namaCalonBayi;
+    }
+
     public List<NamaCalonBayiFavorit> selectNamaCalonBayiFavorit(int idUser){
         RealmResults<NamaCalonBayiFavorit> namaCalonBayis = realm.where(NamaCalonBayiFavorit.class).equalTo("id_bayi",idUser).findAll();
         return namaCalonBayis;
@@ -67,7 +72,7 @@ public class RealmHelper {
     }
 
     public void deleteDataNamaFavorit(final int id){
-        final RealmResults<NamaCalonBayiFavorit> results = realm.where(NamaCalonBayiFavorit.class).equalTo("id_bayi",id).findAll();
+        final RealmResults<NamaCalonBayiFavorit> results = realm.where(NamaCalonBayiFavorit.class).equalTo("id",id).findAll();
         // All changes to data must happen in a transaction
         realm.executeTransaction(new Realm.Transaction() {
             @Override

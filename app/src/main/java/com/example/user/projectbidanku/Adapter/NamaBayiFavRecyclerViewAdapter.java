@@ -2,6 +2,7 @@ package com.example.user.projectbidanku.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBay
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(holder.mItem.getNama());
         holder.mContentKeterangan.setText(holder.mItem.getArti());
@@ -53,11 +54,16 @@ public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBay
             holder.mImageView.setText("P");
         }
 
-        holder.imageView.setImageResource(R.drawable.ic_female_baby);
+        holder.imageView.setImageResource(R.drawable.ic_close);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                NamaCalonBayi namaCalonBayi = realmHelper.selectNamaBayiFav(holder.mItem.getNama());
+                if(namaCalonBayi != null){
+                    Log.e("namafav","bukan rekomendasi");
+                    realmHelper.updateDataRekomendasiNama(namaCalonBayi.getId(),0);
+                }
+                realmHelper.deleteDataNamaFavorit(holder.mItem.getId());
             }
         });
 

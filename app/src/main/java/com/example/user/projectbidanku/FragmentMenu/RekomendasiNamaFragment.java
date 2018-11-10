@@ -58,7 +58,6 @@ public class RekomendasiNamaFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         List<NamaCalonBayi> namaCalonBayis = realmHelper.selectNamaCalonBayi();
-        Log.e("sizeNamaCalonBayi",namaCalonBayis.size()+"");
 
         if(namaCalonBayis.size() == 0){
             for (int i = 0; i < dataNamaBayi.dataNama.length; i++) {
