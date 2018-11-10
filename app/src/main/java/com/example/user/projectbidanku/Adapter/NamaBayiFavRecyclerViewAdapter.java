@@ -1,6 +1,9 @@
 package com.example.user.projectbidanku.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.support.annotation.ColorInt;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,6 +58,8 @@ public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBay
         }
 
         holder.imageView.setImageResource(R.drawable.ic_close);
+        holder.imageView.setBackgroundResource(R.color.colorPrimaryDark);
+
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
