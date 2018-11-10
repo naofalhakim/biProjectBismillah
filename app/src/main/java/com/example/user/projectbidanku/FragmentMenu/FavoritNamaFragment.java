@@ -15,16 +15,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.example.user.projectbidanku.Adapter.NamaBayiFavRecyclerViewAdapter;
 import com.example.user.projectbidanku.Adapter.NamaCalonBayiRecyclerViewAdapter;
+import com.example.user.projectbidanku.AppConfiguration.RealmHelper;
 import com.example.user.projectbidanku.AppConfiguration.ServerHelper;
 import com.example.user.projectbidanku.AppConfiguration.SessionManager;
 import com.example.user.projectbidanku.Model.NamaCalonBayi;
+import com.example.user.projectbidanku.Model.NamaCalonBayiFavorit;
 import com.example.user.projectbidanku.Model.VolleyCalback;
 import com.example.user.projectbidanku.Model.VolleyListCalback;
 import com.example.user.projectbidanku.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 
 public class FavoritNamaFragment extends Fragment implements View.OnClickListener{
@@ -33,8 +39,10 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
     private ServerHelper serverHelper;
     private SessionManager sessionManager;
     private Context context ;
-    private List<NamaCalonBayi> namaList;
+    private List<NamaCalonBayiFavorit> namaList;
     private RecyclerView recyclerView;
+    private RealmHelper realmHelper;
+    private Realm realm;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,6 +53,10 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
         namaList = new ArrayList();
         context = this.getContext();
 
+        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        realm = Realm.getInstance(configuration);
+        realmHelper = new RealmHelper(realm);
+
         floatingActionButton = (FloatingActionButton) root.findViewById(R.id.btn_add_baby);
         floatingActionButton.setOnClickListener(this);
         serverHelper = new ServerHelper(getContext());
@@ -52,13 +64,18 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclre_activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
-            @Override
-            public void onSuccess(List<Object> objectList) {
-                namaList = (List<NamaCalonBayi>) (Object) objectList;
-                recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context));
-            }
-        });
+        namaList = realmHelper.selectNamaCalonBayiFavorit(sessionManager.getLoginID());
+        recyclerView.setAdapter(new NamaBayiFavRecyclerViewAdapter(namaList,context,realmHelper));
+
+//        serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
+//            @Override
+//            public void onSuccess(List<Object> objectList) {
+//                namaList = (List<NamaCalonBayi>) (Object) objectList;
+//                recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context,realmHelper));
+//            }
+//        });
+
+
 
 
         floatingActionButton.setOnClickListener(this);
@@ -81,34 +98,41 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
         final RadioButton rdLaki = (RadioButton) mView.findViewById(R.id.rd_laki);
         RadioButton rdPerempuan = (RadioButton) mView.findViewById(R.id.rd_perempuan);
         Button addButton = (Button) mView.findViewById(R.id.btn_add_baby);
+        final AlertDialog dialog = mBuilder.create();
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String gender;
                 if(rdLaki.isChecked()){
-                    gender = "laki";
+                    gender = "L";
                 }else{
-                    gender = "perempuan";
+                    gender = "P";
                 }
-                serverHelper.addBabyNameFunction(sessionManager.getLoginID(), etNamaBayi.getText().toString(),
-                        etArtiBayi.getText().toString(), gender, new VolleyCalback() {
-                            @Override
-                            public void onSuccess(String result, String result2) {
+                NamaCalonBayi namaCalonBayi = new NamaCalonBayi(gender,etNamaBayi.getText().toString(), etArtiBayi.getText().toString());
+                realmHelper.saveNamaCalonBayiFavorit(namaCalonBayi,sessionManager.getLoginID());
 
-                            }
-                        });
-                serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
-                    @Override
-                    public void onSuccess(List<Object> objectList) {
-                        namaList = (List<NamaCalonBayi>) (Object) objectList;
-                        recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context));
-                    }
-                });
+                namaList = realmHelper.selectNamaCalonBayiFavorit(sessionManager.getLoginID());
+                recyclerView.setAdapter(new NamaBayiFavRecyclerViewAdapter(namaList,context,realmHelper));
+                dialog.dismiss();
+//                   online server
+//                serverHelper.addBabyNameFunction(sessionManager.getLoginID(), etNamaBayi.getText().toString(),
+//                        etArtiBayi.getText().toString(), gender, new VolleyCalback() {
+//                            @Override
+//                            public void onSuccess(String result, String result2) {
+//
+//                            }
+//                        });
+//                serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
+//                    @Override
+//                    public void onSuccess(List<Object> objectList) {
+//                        namaList = (List<NamaCalonBayi>) (Object) objectList;
+//                        recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context,realmHelper));
+//                    }
+//                });
             }
         });
 
-        final AlertDialog dialog = mBuilder.create();
         dialog.show();
     }
 }

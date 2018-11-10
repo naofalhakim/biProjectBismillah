@@ -7,14 +7,14 @@ import io.realm.annotations.PrimaryKey;
  * Created by user on 31/08/2018.
  */
 
-public class NamaCalonBayi extends RealmObject{
+public class NamaCalonBayiFavorit extends RealmObject{
     @PrimaryKey
     private int id;
 
     private String jeniskelamin;
     private int sign_fav;
 
-    public NamaCalonBayi(int id, String jeniskelamin, int id_bayi, String nama, String arti) {
+    public NamaCalonBayiFavorit(int id, String jeniskelamin, int id_bayi, String nama, String arti) {
         this.id = id;
         this.jeniskelamin = jeniskelamin;
         this.id_bayi = id_bayi;
@@ -74,18 +74,18 @@ public class NamaCalonBayi extends RealmObject{
         this.arti = arti;
     }
 
-    public NamaCalonBayi(String jeniskelamin, String nama, String arti) {
+    public NamaCalonBayiFavorit(String jeniskelamin, String nama, String arti) {
 
         this.jeniskelamin = jeniskelamin;
         this.nama = nama;
         this.arti = arti;
     }
 
-    public NamaCalonBayi() {
+    public NamaCalonBayiFavorit() {
 
     }
 
-    public NamaCalonBayi(int id, String jeniskelamin, String nama, String arti) {
+    public NamaCalonBayiFavorit(int id, String jeniskelamin, String nama, String arti) {
 
         this.id = id;
         this.jeniskelamin = jeniskelamin;

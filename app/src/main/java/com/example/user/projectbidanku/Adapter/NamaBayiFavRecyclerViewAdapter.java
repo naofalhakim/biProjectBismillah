@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.example.user.projectbidanku.AppConfiguration.RealmHelper;
 import com.example.user.projectbidanku.AppConfiguration.SessionManager;
-import com.example.user.projectbidanku.Model.Info;
 import com.example.user.projectbidanku.Model.NamaCalonBayi;
+import com.example.user.projectbidanku.Model.NamaCalonBayiFavorit;
 import com.example.user.projectbidanku.R;
 
 import java.util.List;
@@ -20,14 +20,14 @@ import java.util.List;
 /**
 
  */
-public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaCalonBayiRecyclerViewAdapter.ViewHolder> {
+public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBayiFavRecyclerViewAdapter.ViewHolder> {
 
-    private final List<NamaCalonBayi> mValues;
+    private final List<NamaCalonBayiFavorit> mValues;
     private Context context;
     private RealmHelper realmHelper;
     private SessionManager sessionManager;
 
-    public NamaCalonBayiRecyclerViewAdapter(List<NamaCalonBayi> items, Context context, RealmHelper realmHelper) {
+    public NamaBayiFavRecyclerViewAdapter(List<NamaCalonBayiFavorit> items, Context context, RealmHelper realmHelper) {
         this.mValues = items;
         this.context = context;
         this.realmHelper = realmHelper;
@@ -53,22 +53,11 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
             holder.mImageView.setText("P");
         }
 
-        if(holder.mItem.getSign_fav() == 0) {
-            holder.imageView.setImageResource(R.drawable.ic_male_baby);
-        }else{
-            holder.imageView.setImageResource(R.drawable.ic_female_baby);
-        }
-
+        holder.imageView.setImageResource(R.drawable.ic_female_baby);
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(holder.mItem.getSign_fav() == 0){
-                    realmHelper.updateDataRekomendasiNama(holder.mItem.getId(),1);
-                    realmHelper.saveNamaCalonBayiFavorit(holder.mItem,sessionManager.getLoginID());
-//                    holder.mItem.setSign_fav(1);
-                    holder.imageView.setImageResource(R.drawable.ic_female_baby);
-                    Toast.makeText(context,"Added to Favorit",Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 
@@ -93,7 +82,7 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
         public final TextView mImageView;
         public final ImageView imageView;
 
-        public NamaCalonBayi mItem;
+        public NamaCalonBayiFavorit mItem;
 
         public ViewHolder(View view) {
             super(view);

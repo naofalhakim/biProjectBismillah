@@ -18,7 +18,7 @@ public class ConfigDBLocal extends Application{
             RealmConfiguration config = new RealmConfiguration
                     .Builder()
                     .deleteRealmIfMigrationNeeded()
-                    .name("MuslimHabitt.realm")
+                    .name("bidanku.realm")
                     .build();
             Realm.setDefaultConfiguration(config);
         }
