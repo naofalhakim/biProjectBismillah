@@ -39,7 +39,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener{
 
     private int[] motherText = {R.id.txt_jkn, R.id.txt_notelp, R.id.txt_agama,R.id.txt_usia_anak,R.id.txt_Jumlah_Melahirkan
     ,R.id.txt_Jumlah_keguguran,R.id.txt_jumlah_bayi_meninggal, R.id.txt_jumlah_anak_prematur,R.id.txt_jumlah_bayi_hidup};
-    private int[] husbandText = {R.id.txt_nama,R.id.txt_ttl,R.id.txt_agama, R.id.txt_goldar,R.id.txt_pekerjaan};
+    private int[] husbandText = {R.id.txt_nama,R.id.txt_ttl,R.id.txt_agama,R.id.txt_pendidikan, R.id.txt_goldar,R.id.txt_pekerjaan};
     private int[] addressText = {R.id.txt_alamat_rumah,R.id.txt_kelurahan,R.id.txt_kecamatan,R.id.txt_notelp};
 
     public AkunFragment() {
@@ -72,18 +72,28 @@ public class AkunFragment extends Fragment implements View.OnClickListener{
         btnKeluarga.setOnClickListener(this);
         btnAnak.setOnClickListener(this);
 
-        serverHelper.showDetailMom(sessionManager.getLoginID(), new VolleyCallbackObject() {
-            @Override
-            public void onSuccess(Object object) {
-                patient = (Patient) object;
-                etAge.setText(patient.getAge()+"");
-                etEmail.setText(patient.getEmail());
-                etLocation.setText(patient.getAlamat());
-                etPendidikan.setText(patient.getPendidikan());
-                etTelphoneNumber.setText(patient.getNotelp());
-                etKehamilan.setText(patient.getKehamilanke()+"");
-            }
-        });
+//        serverHelper.showDetailMom(sessionManager.getLoginID(), new VolleyCallbackObject() {
+//            @Override
+//            public void onSuccess(Object object) {
+//                patient = (Patient) object;
+//                if(patient!=null){
+//                    etAge.setText(patient.getAge()+"");
+//                    etEmail.setText(patient.getEmail());
+//                    etLocation.setText(patient.getAlamat());
+//                    etPendidikan.setText(patient.getPendidikan());
+//                    etTelphoneNumber.setText(patient.getNotelp());
+//                    etKehamilan.setText(patient.getKehamilanke()+"");
+//                }else{
+//                    etAge.setText("");
+//                    etEmail.setText("admin@gmail.com");
+//                    etLocation.setText("");
+//                    etPendidikan.setText("");
+//                    etTelphoneNumber.setText("");
+//                    etKehamilan.setText("");
+//                }
+//
+//            }
+//        });
 
         serverHelper.showDetailHusband(sessionManager.getLoginID(), new VolleyCallbackObject() {
             @Override
@@ -130,7 +140,7 @@ public class AkunFragment extends Fragment implements View.OnClickListener{
 
         public void showDialogSuami(){
             mView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_detail_suami, null);
-            String[] contentHusband = {"Nama : "+suami.getNama(),"TTL : "+suami.getAlamat(),"Agama : "+suami.getAgama(),"Golongan Darah : "+suami.getGoldar(),
+            String[] contentHusband = {"Nama : "+suami.getNama(),"TTL : "+suami.getAlamat(),"Agama : "+suami.getAgama(),"Pendidikan : "+suami.getKjn(),"Golongan Darah : "+suami.getGoldar(),
                     "Pekerjaan : "+suami.getPendidikan()
             };
             for (int i = 0; i < husbandText.length; i++) {

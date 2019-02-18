@@ -16,7 +16,7 @@ public class DataKehamilan {
         this.nama = nama;
     }
 
-    private boolean KEK;
+    private String KEK;
     private double body_height;
 
     public int getId() {
@@ -59,11 +59,11 @@ public class DataKehamilan {
         this.contraception_methode = contraception_methode;
     }
 
-    public boolean isKEK() {
+    public String isKEK() {
         return KEK;
     }
 
-    public void setKEK(boolean KEK) {
+    public void setKEK(String KEK) {
         this.KEK = KEK;
     }
 
@@ -75,7 +75,7 @@ public class DataKehamilan {
         this.body_height = body_height;
     }
 
-    public DataKehamilan(int id, int arm_size, String last_mens_date, String estimation_birth_date, String contraception_methode, boolean KEK, double body_height) {
+    public DataKehamilan(int id, int arm_size, String last_mens_date, String estimation_birth_date, String contraception_methode, String KEK, double body_height) {
 
         this.id = id;
         this.arm_size = arm_size;
@@ -86,7 +86,7 @@ public class DataKehamilan {
         this.body_height = body_height;
     }
 
-    public DataKehamilan(int arm_size, String last_mens_date, String estimation_birth_date, String contraception_methode, boolean KEK, double body_height) {
+    public DataKehamilan(int arm_size, String last_mens_date, String estimation_birth_date, String contraception_methode, String KEK, double body_height) {
 
         this.arm_size = arm_size;
         this.last_mens_date = last_mens_date;

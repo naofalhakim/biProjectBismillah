@@ -80,12 +80,13 @@ public class DataKehamilanRecyclerViewAdapter extends RecyclerView.Adapter<DataK
             DetailDataKehamilanFragment fragment = new DetailDataKehamilanFragment();
             Bundle args = new Bundle();
             args.putString("Nama", mItem.getNama());
+            args.putString("Id", mItem.getId()+"");
             args.putString("T_hamil", mContentKeterangan.getText().toString());
             args.putString("T_lahir", mItem.getEstimation_birth_date());
             args.putInt("Arm", mItem.getArm_size());
             args.putDouble("B_height", mItem.getBody_height());
             args.putString("Contra", mItem.getContraception_methode());
-            args.putBoolean("kek", mItem.isKEK());
+            args.putString("kek", mItem.isKEK());
 
             fragment.setArguments(args);
 

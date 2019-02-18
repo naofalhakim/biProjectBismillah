@@ -1,5 +1,6 @@
 package com.example.user.projectbidanku.AppConfiguration;
 
+import com.example.user.projectbidanku.Model.Foto;
 import com.example.user.projectbidanku.Model.NamaCalonBayi;
 import com.example.user.projectbidanku.Model.NamaCalonBayiFavorit;
 
@@ -17,6 +18,28 @@ public class RealmHelper {
 
     public RealmHelper(Realm realm) {
         this.realm = realm;
+    }
+
+    public int getMaxFoto(){
+        Number currentData = realm.where(Foto.class).max("id");
+        int numberId;
+        if(currentData==null){
+            numberId = 1;
+        }else{
+            numberId = currentData.intValue()+1;
+        }
+        return numberId;
+    }
+
+    public void saveFotoCalonBayi(Foto foto){
+        realm.beginTransaction();
+        realm.copyToRealm(foto);
+        realm.commitTransaction();
+    }
+
+    public List<Foto> selectFotoCalonBayi(){
+        RealmResults<Foto> namaCalonBayis = realm.where(Foto.class).findAll();
+        return namaCalonBayis;
     }
 
     public int getMaxNamaFavoritBayi(){

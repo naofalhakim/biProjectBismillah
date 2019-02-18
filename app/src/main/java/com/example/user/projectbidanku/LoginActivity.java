@@ -43,6 +43,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+//        if(etEmail.getText().toString().equals("admin") && etPassword.getText().toString().equals("admin")){
+//            sessionManager.setLogin("admin",1);
+//            Toast.makeText(LoginActivity.this,"Login Berhasil",Toast.LENGTH_SHORT).show();
+//            startActivity(new Intent(LoginActivity.this,MenuActivity.class));
+//            finish();
+//        }
         serverHelper.loginFunction(etEmail.getText().toString(), etPassword.getText().toString(), new VolleyCalback() {
 
             @Override

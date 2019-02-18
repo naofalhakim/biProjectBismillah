@@ -65,7 +65,9 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclre_activity);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         namaList = realmHelper.selectNamaCalonBayiFavorit(sessionManager.getLoginID());
-        recyclerView.setAdapter(new NamaBayiFavRecyclerViewAdapter(namaList,context,realmHelper));
+        NamaBayiFavRecyclerViewAdapter adapter = new NamaBayiFavRecyclerViewAdapter(namaList,context,realmHelper);
+        adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);
 
 //        serverHelper.showBabyName(sessionManager.getLoginID(), new VolleyListCalback() {
 //            @Override
@@ -74,9 +76,6 @@ public class FavoritNamaFragment extends Fragment implements View.OnClickListene
 //                recyclerView.setAdapter(new NamaCalonBayiRecyclerViewAdapter(namaList,context,realmHelper));
 //            }
 //        });
-
-
-
 
         floatingActionButton.setOnClickListener(this);
 

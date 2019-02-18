@@ -1,9 +1,11 @@
 package com.example.user.projectbidanku.Adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.ColorInt;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,12 +32,16 @@ public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBay
     private Context context;
     private RealmHelper realmHelper;
     private SessionManager sessionManager;
+    private AlertDialog alertDialog;
 
     public NamaBayiFavRecyclerViewAdapter(List<NamaCalonBayiFavorit> items, Context context, RealmHelper realmHelper) {
         this.mValues = items;
         this.context = context;
         this.realmHelper = realmHelper;
         this.sessionManager = new SessionManager(context);
+        this.alertDialog = new AlertDialog.Builder(context).create();
+        this.alertDialog.setTitle("Hapus Nama Bayi");
+        this.alertDialog.setMessage("Apakah Anda Yakin ?");
 
     }
 
@@ -63,12 +69,26 @@ public class NamaBayiFavRecyclerViewAdapter extends RecyclerView.Adapter<NamaBay
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NamaCalonBayi namaCalonBayi = realmHelper.selectNamaBayiFav(holder.mItem.getNama());
-                if(namaCalonBayi != null){
-                    Log.e("namafav","bukan rekomendasi");
-                    realmHelper.updateDataRekomendasiNama(namaCalonBayi.getId(),0);
-                }
-                realmHelper.deleteDataNamaFavorit(holder.mItem.getId());
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                NamaCalonBayi namaCalonBayi = realmHelper.selectNamaBayiFav(holder.mItem.getNama());
+                                if(namaCalonBayi != null){
+                                    Log.e("namafav","bukan rekomendasi");
+                                    realmHelper.updateDataRekomendasiNama(namaCalonBayi.getId(),0);
+                                }
+                                realmHelper.deleteDataNamaFavorit(holder.mItem.getId());
+                                notifyDataSetChanged();
+                            }
+                        });
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"Batal",
+                        new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alertDialog.show();
             }
         });
 

@@ -39,6 +39,7 @@ public class NamaBayiFragment extends Fragment{
     private ServerHelper serverHelper;
     private SessionManager sessionManager;
     private Context context ;
+    private MainMenuAdapter mainMenuAdapter;
 
     public NamaBayiFragment() {
         // Required empty public constructor
@@ -57,7 +58,9 @@ public class NamaBayiFragment extends Fragment{
         tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
 
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        viewPager.setAdapter(new MainMenuAdapter(getActivity().getSupportFragmentManager(),tabLayout.getTabCount()));
+        mainMenuAdapter = new MainMenuAdapter(getActivity().getSupportFragmentManager(),tabLayout.getTabCount());
+
+        viewPager.setAdapter(mainMenuAdapter);
 
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

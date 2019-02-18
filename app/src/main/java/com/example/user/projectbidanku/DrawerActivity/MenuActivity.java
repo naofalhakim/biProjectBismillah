@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.example.user.projectbidanku.AppConfiguration.SessionManager;
 import com.example.user.projectbidanku.FragmentMenu.AkunFragment;
 import com.example.user.projectbidanku.FragmentMenu.BerandaFragment;
+import com.example.user.projectbidanku.FragmentMenu.CameraFragment;
 import com.example.user.projectbidanku.FragmentMenu.DataKehamilanFragment;
 import com.example.user.projectbidanku.FragmentMenu.NamaBayiFragment;
 import com.example.user.projectbidanku.FragmentMenu.RencanaKelahiranFragment;
@@ -128,7 +129,9 @@ public class MenuActivity extends AppCompatActivity
             ((TextView)v.findViewById(R.id.title)).setText("NAMA BAYI");
             this.getSupportActionBar().setCustomView(v);
         } else if (id == R.id.nav_galeri) {
-
+            fragmentTransaction.replace(R.id.fragment_menu, new CameraFragment());
+            ((TextView)v.findViewById(R.id.title)).setText("GALERI");
+            this.getSupportActionBar().setCustomView(v);
         }else if (id == R.id.nav_persiapan_kehamilan) {
             fragmentTransaction.replace(R.id.fragment_menu, new RencanaKelahiranFragment());
             ((TextView)v.findViewById(R.id.title)).setText("RENCANA KEHAMILAN");

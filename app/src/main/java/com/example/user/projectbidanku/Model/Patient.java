@@ -39,13 +39,14 @@ public class Patient {
         this.kecamatan = kecamatan;
     }
 
-//  ini kusus buat husband alamat == TTL and pendidikan == occupation
-    public Patient(int id, String nama, String alamat, String pendidikan, String agama, String goldar) {
+//  ini kusus buat husband alamat == TTL and kjn == occupation
+    public Patient(int id, String nama, String alamat, String pendidikan,String kjn, String agama, String goldar) {
         this.id = id;
         this.nama = nama;
         this.alamat = alamat;
         this.pendidikan = pendidikan;
         this.agama = agama;
+        this.kjn = kjn;
         this.goldar = goldar;
     }
 
@@ -59,7 +60,19 @@ public class Patient {
     }
 
     public String getGoldar() {
-        return goldar;
+        switch (goldar){
+            case "1":
+                return "A";
+            case "2":
+                return "B";
+            case "3":
+                return "AB";
+            case "4":
+                return "D";
+            default:
+                return "Belum Terdata";
+        }
+
     }
 
     public void setGoldar(String goldar) {

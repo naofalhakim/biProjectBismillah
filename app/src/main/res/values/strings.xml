@@ -6,6 +6,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_camera">Camera</string>
+    <string name="action_gallery">Gallery</string>
+
+    <string name="string_lingkarlengan">Ukuran Lingkar Lengan : </string>
+    <string name="string_terakhirmens">Terakhir Menstruasi :</string>
+    <string name="string_estimasikelahiran">Estimasi Kelahiran :</string>
+    <string name="string_metodekontrsepsi">Metode Kontrasepsi :</string>
+    <string name="string_menggunakankek">Menggunakan KEK :</string>
+    <string name="string_tinggibadan">Tinggi Badan :</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

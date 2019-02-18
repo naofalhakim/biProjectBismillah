@@ -56,7 +56,7 @@
                         android:id="@+id/txt_armsize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ukuran Lingkar Lengan"
+                        android:text="@string/string_lingkarlengan"
                         />
                 </LinearLayout>
 
@@ -77,7 +77,7 @@
                         android:id="@+id/txt_terakhir_mens"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Terakhir Menstruasi : 28-02-2018"
+                        android:text="@string/string_terakhirmens"
                         />
 
                 </LinearLayout>
@@ -101,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorAccent"
                         android:textStyle="bold"
-                        android:text="Estimasi Kelahiran : 28-10-2018"
+                        android:text="@string/string_estimasikelahiran"
                         />
 
                 </LinearLayout>
@@ -123,7 +123,7 @@
                         android:id="@+id/txt_metode_kontrasep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Metode Kontrasepsi : Tidak Ada"
+                        android:text="@string/string_metodekontrsepsi"
                         />
 
                 </LinearLayout>
@@ -145,7 +145,7 @@
                         android:id="@+id/txt_KEK"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Menggunakan KEK : Tidak"
+                        android:text="@string/string_menggunakankek"
                         />
 
                 </LinearLayout>
@@ -167,7 +167,7 @@
                         android:id="@+id/txt_body_height"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tinggi Badan : 147 cm"
+                        android:text="@string/string_tinggibadan"
                         />
 
                 </LinearLayout>

@@ -19,6 +19,7 @@ import com.example.user.projectbidanku.Model.VolleyCalback;
 import com.example.user.projectbidanku.Model.VolleyCallbackObject;
 import com.example.user.projectbidanku.Model.VolleyListCalback;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -42,7 +43,6 @@ public class ServerHelper {
     }
 
     public void loginFunction(final String email, final String password, final VolleyCalback callback){
-
 
         final ProgressDialog progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Waiting for Login");
@@ -233,7 +233,6 @@ public class ServerHelper {
                         progressDialog.dismiss();
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-//                            JSONArray jsonArray1 =
                             if(jsonArray.length() != 0){
                                 Log.e("husbangeror",jsonArray.get(0)+"");
                                 JSONObject jsonObject = (JSONObject) jsonArray.get(0);
@@ -335,16 +334,19 @@ public class ServerHelper {
                         progressDialog.dismiss();
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            if(jsonArray.length() != 0){
-                                Log.e("husbangeror",jsonArray.get(0)+"");
-                                JSONObject jsonObject = (JSONObject) jsonArray.get(0);
-                                callback.onSuccess(new Patient(id,
-                                        jsonObject.getString("name"),
-                                        jsonObject.getString("birt_place")+","+jsonObject.getString("birt_date"),
-                                        jsonObject.getString("occupation"),
-                                        jsonObject.getString("religion"),
-                                        jsonObject.getString("type")
-//                                        ,jsonObject.getString("blood_type_id")
+                            JSONArray jsonArray1 = jsonArray.getJSONArray(0);
+                            if(jsonArray1.length() != 0){
+                                Log.e("myhusband",jsonArray1.get(0)+"");
+                                JSONObject jsonObject = (JSONObject) jsonArray1.get(0);
+
+                                callback.onSuccess(new Patient(
+                                        Integer.parseInt(jsonObject.getString("id_husbands")),
+                                        jsonObject.getString("name_husbands"),
+                                        jsonObject.getString("birth_place_husbands")+","+jsonObject.getString("birth_date_husbands"),
+                                        jsonObject.getString("occupation_husbands"),
+                                        jsonObject.getString("education_husbands"),
+                                        jsonObject.getString("religion_husbands"),
+                                        jsonObject.getString("blood_type_id_husbands")
                                         ));
                             }else{
                                 callback.onSuccess(null);
@@ -450,11 +452,13 @@ public class ServerHelper {
                                 JSONObject jsonObject;
                                 for (int i = 0; i < jsonArray1.length(); i++) {
                                     jsonObject = jsonArray1.getJSONObject(i);
-                                    pregnancyList.add(new DataKehamilan(
+                                    DataKehamilan dataKehamilan = new DataKehamilan(
                                             jsonObject.getInt("id_pregnancy_info"),
                                             jsonObject.getString("last_menstruation_date"),
-                                            jsonObject.getString("estimated_birth_date")
-                                    ));
+                                            ""
+                                    );
+                                    dataKehamilan.setNama(""+(i+1));
+                                    pregnancyList.add(dataKehamilan);
                                 }
                                 callback.onSuccess(pregnancyList);
                             }else{
@@ -490,16 +494,18 @@ public class ServerHelper {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         try {
+                            Log.e("mykehamilan",response);
                             JSONArray jsonArray = new JSONArray(response);
-                            if(jsonArray.get(0) != null){
+                            JSONArray jsonArray1 = jsonArray.getJSONArray(0);
+                            if(jsonArray1.get(0) != null){
                                 JSONObject jsonObject;
-                                jsonObject = jsonArray.getJSONObject(0);
+                                jsonObject = jsonArray1.getJSONObject(0);
                                 callback.onSuccess(new DataKehamilan(
                                         jsonObject.getInt("id_pregnancy_info"), jsonObject.getInt("upper_arm_circumference"),
                                         jsonObject.getString("last_menstruation_date"),
                                         jsonObject.getString("estimated_birth_date"),
-                                        jsonObject.getString("contraception_methode"),
-                                        jsonObject.getBoolean("KEK"),
+                                        jsonObject.getString("contraception_method"),
+                                        jsonObject.getString("KEK"),
                                         jsonObject.getDouble("body_height")
                                 ));
                             }else{
@@ -543,16 +549,19 @@ public class ServerHelper {
                     public void onResponse(String response) {
                         progressDialog.dismiss();
                         try {
+                            Log.e("catatankesehatan",response+"");
                             JSONArray jsonArray = new JSONArray(response);
                             if(jsonArray.get(0) != null){
-                                JSONArray jsonArray1 = (JSONArray) jsonArray.get(0);
+                                JSONArray jsonArray1 = jsonArray.getJSONArray(0);
                                 JSONObject jsonObject;
                                 for (int i = 0; i < jsonArray1.length(); i++) {
                                     jsonObject = jsonArray1.getJSONObject(i);
-                                    healtyNotesList.add(new CatatanKesehatan(
+                                    CatatanKesehatan catatanKesehatan = new CatatanKesehatan(
                                             jsonObject.getInt("id_healthy_notes"),
-                                            jsonObject.getString("chekup_date")
-                                    ));
+                                            jsonObject.getString("checkup_date")
+                                    );
+                                    catatanKesehatan.setNama(""+(i+1));
+                                    healtyNotesList.add(catatanKesehatan);
                                 }
                                 callback.onSuccess(healtyNotesList);
                             }else{
@@ -597,13 +606,14 @@ public class ServerHelper {
                         progressDialog.dismiss();
                         try {
                             JSONArray jsonArray = new JSONArray(response);
-                            if(jsonArray.get(0) != null){
+                            JSONArray jsonArray1 = jsonArray.getJSONArray(0);
+                            if(jsonArray1.get(0) != null){
                                 JSONObject jsonObject;
-                                jsonObject = jsonArray.getJSONObject(0);
-                                callback.onSuccess(new CatatanKesehatan(
+                                jsonObject = jsonArray1.getJSONObject(0);
+                                CatatanKesehatan catatanKesehatan = new CatatanKesehatan(
                                         jsonObject.getInt("id_healthy_notes"),
                                         jsonObject.getInt("pregnancy_age"),
-                                        jsonObject.getString("chekup_date"),
+                                        jsonObject.getString("checkup_date"),
                                         jsonObject.getString("recheckup_date"),
                                         jsonObject.getString("complaint"),
                                         jsonObject.getString("lab_result"),
@@ -612,12 +622,13 @@ public class ServerHelper {
                                         jsonObject.getString("checkup_location"),
                                         jsonObject.getDouble("blood_pressure"),
                                         jsonObject.getDouble("body_weight"),
-                                        jsonObject.getDouble("fudus_height"),
+                                        jsonObject.getDouble("fundus_height"),
                                         jsonObject.getDouble("fetus_position"),
                                         jsonObject.getDouble("fetus_pulse"),
                                         jsonObject.getDouble("heart_pulse"),
                                         jsonObject.getDouble("swollen_foot")
-                                ));
+                                );
+                                callback.onSuccess(catatanKesehatan);
                             }else{
                                 callback.onSuccess(null);
                             }

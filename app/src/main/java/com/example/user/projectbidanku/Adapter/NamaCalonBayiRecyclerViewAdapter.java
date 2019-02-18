@@ -65,9 +65,12 @@ public class NamaCalonBayiRecyclerViewAdapter extends RecyclerView.Adapter<NamaC
                 if(holder.mItem.getSign_fav() == 0){
                     realmHelper.updateDataRekomendasiNama(holder.mItem.getId(),1);
                     realmHelper.saveNamaCalonBayiFavorit(holder.mItem,sessionManager.getLoginID());
-//                    holder.mItem.setSign_fav(1);
                     holder.imageView.setImageResource(R.drawable.ic_female_baby);
                     Toast.makeText(context,"Added to Favorit",Toast.LENGTH_SHORT).show();
+                }else{
+                    realmHelper.updateDataRekomendasiNama(holder.mItem.getId(),0);
+                    realmHelper.deleteDataNamaFavorit(holder.mItem.getId());
+                    holder.imageView.setImageResource(R.drawable.ic_male_baby);
                 }
             }
         });
